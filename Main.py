@@ -1,21 +1,26 @@
-# Импортируйте необходимые библиотеки.
+# Imports of disnake
 import disnake
 from disnake.ext import commands
 from disnake.ext.commands import UserInputError
 from disnake.ui import View, Button
+
 import os
-import io
+
 import sqlite3
+
 import datetime
 from datetime import datetime, date, time
+
 import random
+
 from PIL import Image, ImageFilter, ImageDraw, ImageFont
+
 import asyncio
+
 from pytube import YouTube
-import shutil
 
 
-TOKEN = 'YOUR TOKEN'
+TOKEN = 'MTEzMzUyNTUyNDUzMTEzMDQyOQ.GrIb3m.ch6aA9UAHcnr86N4QxVhshj-iFGygJ779btzzY'
 
 # Создание экземпляра класса commands.Bot() и присваивание его в "bot".
 intents = disnake.Intents.default()
@@ -46,7 +51,7 @@ bot.load_extension("cogs.botinfo")
 async def hipp(inter):
     await inter.response.send_message(f"Привет всем {inter.guild.member_count} участникам ПП")
 
-@bot.slash_command()
+@bot.slash_command(description="Добавить бота в аудиоканал")
 async def join(inter):
     try:
         if inter.author.voice:
@@ -61,7 +66,7 @@ async def join(inter):
     except:
         await inter.response.send_message(f"Бот уже находится в канале на этом сервере")
 
-@bot.slash_command()
+@bot.slash_command(description="Включить аудио")
 async def play(ctx):
     if await is_bot_in_same_channel(ctx):
         try: 
@@ -914,6 +919,5 @@ async def resume_sound(ctx):
     voice_connection = audio_connections[ctx.guild.id]
     voice_connection.resume()
     
-
 # Войдите в Discord с помощью токена бота.
 bot.run(TOKEN)
