@@ -20,7 +20,7 @@ import asyncio
 from pytube import YouTube
 
 
-TOKEN = 'MTEzMzUyNTUyNDUzMTEzMDQyOQ.GrIb3m.ch6aA9UAHcnr86N4QxVhshj-iFGygJ779btzzY'
+TOKEN = 'TOKEN'
 
 # Создание экземпляра класса commands.Bot() и присваивание его в "bot".
 intents = disnake.Intents.default()
